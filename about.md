@@ -22,4 +22,4 @@ Wasif Islam
 </dl>
 
 <h3>Contact me</h3>
-[wislam@andrew.cmu.edu](mailto:email@domain.com)
+[wislam@alumni.cmu.edu](mailto:email@domain.com)
