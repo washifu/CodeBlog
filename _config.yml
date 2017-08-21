@@ -14,7 +14,7 @@ baseurl:             'https://washifu.github.io/codeblog'
 paginate:            5
 
 # About/contact
-author:              washifu
+author:
   name:              Wasif Islam
   url:               'https://www.linkedin.com/in/islamwasif/'
   email:             wislam@andrew.cmu.edu
