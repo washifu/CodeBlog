@@ -9,8 +9,8 @@ markdown:           kramdown
 title:               SYSU Thesis Blog
 tagline:             'Wasif Islam'
 description:         'JIE SYSU-CMU'
-url:                 'http://washifu.github.io'
-baseurl:             'http://washifu.github.io/codeblog'
+url:                 
+baseurl:             ""
 paginate:            5
 
 # About/contact
