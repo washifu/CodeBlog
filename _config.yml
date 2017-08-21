@@ -8,7 +8,7 @@ markdown:           kramdown
 # Setup
 title:               Code Blog
 tagline:             'Wasif Islam'
-description:         'Coding Adventures'
+description:         'Wasif's Coding Adventures'
 url:                 'https://washifu.github.io'
 baseurl:             'https://washifu.github.io/codeblog'
 paginate:            5
