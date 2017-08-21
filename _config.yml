@@ -6,9 +6,9 @@ markdown:           kramdown
 # relative_permalinks: true
 
 # Setup
-title:               SYSU Thesis Blog
+title:               Code Blog
 tagline:             'Wasif Islam'
-description:         'JIE SYSU-CMU'
+description:         'Coding Adventures'
 url:                 'https://washifu.github.io'
 baseurl:             'https://washifu.github.io/codeblog'
 paginate:            5
