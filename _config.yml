@@ -9,12 +9,12 @@ markdown:           kramdown
 title:               SYSU Thesis Blog
 tagline:             'Wasif Islam'
 description:         'JIE SYSU-CMU'
-url:                 'http://washifu.github.io'
-baseurl:             'http://washifu.github.io'
+url:                 'http://washifu.github.io/codeblog'
+baseurl:             'http://washifu.github.io/codeblog'
 paginate:            5
 
 # About/contact
-author:              
+author:              washifu
   name:              Wasif Islam
   url:               'https://www.linkedin.com/in/islamwasif/'
   email:             wislam@andrew.cmu.edu
