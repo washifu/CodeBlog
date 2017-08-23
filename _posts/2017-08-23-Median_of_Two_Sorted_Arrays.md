@@ -27,9 +27,9 @@ The median is (2 + 3) / 2 = 2.5
 ```
 
 ### Solution:
-The key is that the input arrays are *sorted* and to optimize you want to use binary search.
-
-Start by identifying the size of each array to rule out the trivial cases and identify the smaller and larger arrays.
+The key is that the input arrays are *sorted* and to optimize you want to use binary search.  
+  
+Start by identifying the size of each array to rule out the trivial cases and identify the smaller and larger arrays.  
 Then determine whether the total number of elements are even or odd--so at the end you can average if necessary. Throw in a couple quick checks for when one array is totally greater or less than another array for a quick route to the solution.
 
 Okay, for the non-trivial case, consider first the O(n) solution:
