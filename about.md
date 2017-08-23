@@ -4,7 +4,7 @@ title: About
 ---
 
 Wasif Islam
-![alt text](https://github.com/washifu/codeblog/blob/master/_images/me.jpg?raw=true "Wasif Islam")
+![Wasif Islam](https://github.com/washifu/codeblog/blob/master/_images/me.jpg?raw=true = 250x300)
 
 <dl>
   <h3>Saint Olaf College (2012)</h3>
