@@ -50,7 +50,7 @@ We must simply ensure two conditions to acquire the true median:
   
 Although the two arrays are sorted, there are several ways to cut the two arrays such that the number of elements are equal but there remain elements in the left parts that are larger than elements in the right parts or there remain elements in the right parts that are smaller than elements in the left parts.    
   
-#### Detailed Explanation:
+### Detailed Explanation:
 The second condition seems like a mouthful, so let me try to elucidate it a bit. Assume the two arrays are **A** and **B** and have been labelled such that the length of **A** is smaller than or equal to **B**. Also, the length of array **A** is **n**, and length of array **B** is **m**. Array **A** may be cut at some index **i** and array **B** at some index **j**. The relationship between **i** and **j** is simply that **i** + **j** must equal (**m** - **i**) + (**n** - **j**) (or (**m** - **i**) + (**n** - **j**) + 1). This satisifies the first condition.  
   
 The second condition requires that all the elements in the left halves are less than all the elements in the right halves. To check for this, take advantage of the fact that the arrays are sorted. Thus, all the elements in **A**'s left half is obviously less than all the elements in **A**'s right half. If the largest element in **A**'s left half, **A[i-1]**, is less than the smallest element in **B**'s right half, **B[j]**, then certainly, all the elements in **A**'s left half are smaller than all the elements in **B**'s right half. Symmetrically, if the largest element in **B**'s left half, **B[j-1]**, is smaller than the smallest element in **A**'s right half, **A[i]**, then certainly, all the elements in **B**'s left half are smaller than all the elements in **A**'s right half.  
@@ -61,7 +61,7 @@ So basically, i and j must simply be adjusted to keep the left halves total and 
   
 This can be done by setting **i** to 0 and iterating up to **i** equals **m**, all the while reducing **j** accordingly and checking for the second condition. If at anypoint the second condition is met, the true median is found.
 
-### O(log(m + n):
+### O( log(m + n) ):
 The strategy is the same, with the exception of optimizing the iteration through **i** instead with a binary search. That's it!
   
 ### My Code:
