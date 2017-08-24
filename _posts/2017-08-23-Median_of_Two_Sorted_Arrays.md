@@ -35,13 +35,25 @@ Then determine whether the total number of elements are even or odd--so at the e
 Okay, for the non-trivial case, first consider the O(n) solution.  
 
 ### O(n):
-Realize that the median divides the total set of numbers such that half of them are less than the median and half are more. Also, each array may be divided into two parts--for simplicity let's say left (smaller) and right (larger) half. We must simply ensure two conditions to acquire the true median:  
+Realize that the median divides the total set of numbers such that half of them are less than the median and half are more. Also, each array may be divided into two parts--for simplicity let's say left (smaller) and right (larger) parts.  
+```
+      left_part          |        right_part
+A[0], A[1], ..., A[i-1]  |  A[i], A[i+1], ..., A[m-1]
+B[0], B[1], ..., B[j-1]  |  B[j], B[j+1], ..., B[n-1]
+```
+
+We must simply ensure two conditions to acquire the true median:  
   
-The total number of elements in the two left halves must equal the total number of elements in the two right halves.
+1) The total number of elements in the two left parts must equal the total number of elements in the two right parts.
   
-The largest element in the left half of the first array must be smaller than the smallest element in the right half of the second array. Also, the largest element in the left half of the second array must be smaller than the smallest element in the right half of the first array. Although the two arrays are sorted, there are several ways to cut the two arrays such that the number of elements are equal but there remain elements in the left halves that are larger than elements in the right halves or there remain elements in the right halves that are smaller than elements in the left halves.  
+2) The largest element in the left part of the first array must be smaller than the smallest element in the right part of the second array. Also, the largest element in the left part of the second array must be smaller than the smallest element in the right part of the first array.  
   
-The second condition seems like a mouthful, so let me try to elucidate it a bit. Assume the two arrays are **A** and **B** and have been labelled such that the length of **A** is smaller than or equal to **B**. Also, the length of array **A** is **n**, and length of array **B** is **m**. Array **A** may be cut at some index **i** and array **B** at some index **j**. The relationship between **i** and **j** is simply that **i** + **j** must equal (**n** - **i**) + (**m** - **j**) (or (**n** - **i**) + (**m** - **j**) + 1). This satisifies the first condition. The second condition requires that all the elements in the left halves are less than all the elements in the right halves. To check for this, take advantage of the fact that the arrays are sorted. Thus, all the elements in **A**'s left half is obviously less than all the elements in **A**'s right half. If the largest element in **A**'s left half, **A[i-1]**, is less than the smallest element in **B**'s right half, **B[j]**, then certainly, all the elements in **A**'s left half are smaller than all the elements in **B**'s right half. Symmetrically, if the largest element in **B**'s left half, **B[j-1]**, is smaller than the smallest element in **A**'s right half, **A[i]**, then certainly, all the elements in **B**'s left half are smaller than all the elements in **A**'s right half.  
+Although the two arrays are sorted, there are several ways to cut the two arrays such that the number of elements are equal but there remain elements in the left parts that are larger than elements in the right parts or there remain elements in the right parts that are smaller than elements in the left parts.    
+  
+#### Detailed Explanation:
+The second condition seems like a mouthful, so let me try to elucidate it a bit. Assume the two arrays are **A** and **B** and have been labelled such that the length of **A** is smaller than or equal to **B**. Also, the length of array **A** is **n**, and length of array **B** is **m**. Array **A** may be cut at some index **i** and array **B** at some index **j**. The relationship between **i** and **j** is simply that **i** + **j** must equal (**n** - **i**) + (**m** - **j**) (or (**n** - **i**) + (**m** - **j**) + 1). This satisifies the first condition.  
+  
+The second condition requires that all the elements in the left halves are less than all the elements in the right halves. To check for this, take advantage of the fact that the arrays are sorted. Thus, all the elements in **A**'s left half is obviously less than all the elements in **A**'s right half. If the largest element in **A**'s left half, **A[i-1]**, is less than the smallest element in **B**'s right half, **B[j]**, then certainly, all the elements in **A**'s left half are smaller than all the elements in **B**'s right half. Symmetrically, if the largest element in **B**'s left half, **B[j-1]**, is smaller than the smallest element in **A**'s right half, **A[i]**, then certainly, all the elements in **B**'s left half are smaller than all the elements in **A**'s right half.  
   
 More succintly, **A[i-1]** <= **B[j]** and **B[j-1]** <= **A[i]** satisfies the second condition.  
   
