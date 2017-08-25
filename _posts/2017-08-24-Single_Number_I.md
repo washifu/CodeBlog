@@ -1,10 +1,10 @@
 ---
 layout: post
-title: Single Number
+title: Single Number I
 comments: true
 ---
 
-## Single Number [LeetCode] -- (Easy)
+## Single Number I [LeetCode](https://leetcode.com/problems/single-number/description/) -- (Easy)
 
 ### Description:
 Given an array of integers, every element appears *twice* except for one. Find that single one.  
