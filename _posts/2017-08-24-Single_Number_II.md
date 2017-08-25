@@ -15,7 +15,7 @@ Your algorithm should have a linear runtime complexity. Could you implement it w
 Although quite similar in nature to Single Number, this problem requires a storing system with three states.
 Therefore, a single variable with binary bits is not enough. The remedy is to use two variables, each representing a bit.
 Thus a total of 4 states can be considered, however, only 3 are desired. Ideally the pattern should be 00 -> 01 -> 10 -> 00.
-This can be achieved by applying some conditions along with the XOR method of storing the integers into the variables. (See Single Number I)  
+This can be achieved by applying some conditions along with the XOR method of storing the integers into the variables. (See [Single Number I](https://washifu.github.io/codeblog/Single_Number_I/))  
   
 Create two variables, called ones and twos. Iterate through the array of integers and store the integer into each variable.
 Add the following conditions:  
@@ -47,10 +47,10 @@ class Solution {
 public:
     int singleNumber(vector<int>& nums) {
         int ones = 0, twos = 0;
-        for(int num : nums)
+        for(int n : nums)
         {
-            ones = (ones^num) & (~twos);
-            twos = (twos^num) & (~ones);
+            ones = (ones ^ n) & (~twos);
+            twos = (twos ^ n) & (~ones);
         }
         return ones;
     }
