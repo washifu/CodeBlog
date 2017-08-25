@@ -40,4 +40,19 @@ Everytime an integer comes up,
 it will update ones and twos according to the states. Therefore, after three occurrences of an integer, 
 ones and twos will be cleared of the data, leaving only the desired integer in the ones variable.  
   
+### My Code:
+```
+class Solution {
+public:
+    int singleNumber(vector<int>& nums) {
+        int ones = 0, twos = 0;
+        for(int num : nums)
+        {
+            ones = (ones^num) & (~twos);
+            twos = (twos^num) & (~ones);
+        }
+        return ones;
+    }
+};
+```
 Source: [Solution by againest1's and Igzvalle and woshidaishu's comments] on LeetCode.(https://discuss.leetcode.com/topic/2031/challenge-me-thx/16?page=1)
