@@ -118,14 +118,14 @@ class Solution {
         { }
         else
         {
-            int left_parts_max = B[j - 1]; // A[i - 1] Does Not Exist
+            int left_parts_max = B[j - 1]; // No A[i - 1]
             if (even)
             {
                 int right_parts_min;
                 if (j != n)
                     right_parts_min = Math.min(A[i], B[j]);
                 else
-                    right_parts_min = A[i]; // B[j] Does Not Exist
+                    right_parts_min = A[i]; // No B[j]
                 return average(left_parts_max, right_parts_min);
             }
             else
@@ -141,10 +141,10 @@ class Solution {
             if (j != 0)
                 left_parts_max = Math.max(A[i - 1], B[j - 1]);
             else
-                left_parts_max = A[i - 1]; // B[j - i] Does Not Exist
+                left_parts_max = A[i - 1]; // No B[j - i]
             if (even)
             {
-                int right_parts_min = B[j]; // A[i] Does Not Exist
+                int right_parts_min = B[j]; // No A[i]
                 return average(left_parts_max, right_parts_min);
             }
             else
@@ -233,18 +233,18 @@ class Solution {
         {
             i = (imin + imax) / 2;
             int j = mid - i;
-            if ( i < m && B[j - 1] > A[i] ) // i is too small, i must increase
+            if ( i < m && B[j - 1] > A[i] ) // i is too small
                 imin = i + 1; // look in larger i's
-            else if ( i > 0 && A[i - 1] > B[j] ) // i is too large, i must decrease
+            else if ( i > 0 && A[i - 1] > B[j] ) // i is too large
                 imax = i - 1; // look in smaller i's
             else
             {
                 // Boundary and Even Element Cases
                 int left_parts_max;
                 if (i == 0)
-                    left_parts_max = B[j - 1]; // A[i - 1] Does Not Exist
+                    left_parts_max = B[j - 1]; // No A[i - 1]
                 else if (j == 0)
-                    left_parts_max = A[i - 1]; // B[j - 1] Does Not Exist
+                    left_parts_max = A[i - 1]; // No B[j - 1]
                 else
                     left_parts_max = Math.max(A[i - 1], B[j - 1]);
 
@@ -253,9 +253,9 @@ class Solution {
                 
                 int right_parts_min;
                 if (i == m)
-                    right_parts_min = B[j];
+                    right_parts_min = B[j]; // No A[i]
                 else if (j == n)
-                    right_parts_min = A[i];
+                    right_parts_min = A[i]; // No B[j]
                 else
                     right_parts_min = Math.min(A[i], B[j]);
                 return average(left_parts_max, right_parts_min);
