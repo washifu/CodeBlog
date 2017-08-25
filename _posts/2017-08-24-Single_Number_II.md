@@ -20,8 +20,10 @@ This can be achieved by applying some conditions along with the XOR method of st
 Create two variables, called ones and twos. Iterate through the array of integers and store the integer into each variable.
 Add the following conditions:  
 ```
-1) Store the integer in ones. If twos has the integer, then clear it from ones.
-2) Store the integer in twos. If ones has the integer, then clear it from twos.
+1) Store the integer in ones. 
+   If twos has the integer, then clear it from ones.
+2) Store the integer in twos. 
+   If ones has the integer, then clear it from twos.
 ```
 Make sure to update ones's value before assessing twos's condition. Both variables must be updated in this order per iteration.    
   
