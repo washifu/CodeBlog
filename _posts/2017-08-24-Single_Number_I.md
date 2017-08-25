@@ -23,7 +23,8 @@ XOR essentially flips the bits to effectively "store" the integer into the varia
 If the same integer comes around, it will effectively "delete" or cancel out the previously stored integer.
 In this way, all sets of double integers will be stored and deleted, leaving only the target integer.  
   
-### My Code -- C++:
+### My Code:
+C++
 ```
 class Solution {
 public:
