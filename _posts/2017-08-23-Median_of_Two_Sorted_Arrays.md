@@ -59,12 +59,212 @@ More succintly, **A[i-1]** < **B[j]** and **B[j-1]** < **A[i]** satisfies the se
   
 So basically, i and j must simply be adjusted to keep the left halves total and right halves total equal and the **A[i-1]** < **B[j]** and **B[j-1]** < **A[i]** must be checked to find the true median.  
   
-This can be done by setting **i** to 0 and iterating up to **i** equals **m**, all the while reducing **j** accordingly and checking for the second condition. If at anypoint the second condition is met, the true median is found.
-
-### O( log(m + n) ):
-The strategy is the same, with the exception of optimizing the iteration through **i** instead with a binary search. That's it!
+This can be done by setting **i** to 0 and iterating up to **i** equals **m**, all the while reducing **j** accordingly and checking for the second condition. If at anypoint the second condition is met, the true median is found.  
   
-### My Code:
+Since the linear time solution iterates through **A**, only the **B[j-1]** < **A[i]** condition must be checked. **i** is checked from the 0 and upwards, so **A[i-1]** < **B[j]** need not be checked, since all smaller **i**'s will have been checked. Also, care must be taken to address the boundary conditions where **i = 0**, **j = 0**, **i = m**, and **j = n**, because at these cases **A[i-1]**, **B[j-1]**, **A[i]**, and **B[j]** do not exist.  
+  
+### My O(n) Code:
+Java
+```
+class Solution {
+    private double average(int a, int b) 
+    {
+        return (a + b) / 2.0;
+    }
+    
+    public double findMedianSortedArrays(int[] nums1, int[] nums2) 
+    {
+        int m = nums1.length;
+        int n = nums2.length;
+        if (m > n) // Ensure nums1 is the smaller array.
+            return findMedianSortedArrays(nums2, nums1);
+        
+        // Relabel the Arrays
+        int[] A = nums1; // smaller
+        int[] B = nums2; // bigger
+        
+        // Odd or Even Total Elements
+        boolean even = true;
+        if ( ((m + n) % 2) != 0 )
+            even = false;
+        
+        // Trivial Cases
+        if ( (m | n) == 0 ) // Both Arrays Empty
+            return 0.0;
+        if (n == 0) // B is Empty
+        {
+            int m_mid = m / 2;  // Integer Division!
+            if (even)           // Even Number of Elements
+                return average(A[m_mid - 1], A[m_mid]);
+            else                // Odd Number of Elements
+                return A[m_mid];
+        }
+        if (m == 0) // A is Empty
+        {
+            int n_mid = n / 2;  // Integer Division!
+            if (even)           // Even Number of Elements
+                return average(B[n_mid - 1], B[n_mid]);
+            else                // Odd Number of Elements
+                return B[n_mid];
+        }
+    
+        // Non-Trivial Case
+        int mid = (m + n + 1) / 2; // Integer Division!          
+        
+        // Boundary Cases
+        int i = 0;
+        int j = mid - i;      
+        if (B[j - 1] > A[i])
+        { }
+        else
+        {
+            int left_parts_max = B[j - 1]; // A[i - 1] Does Not Exist
+            if (even)
+            {
+                int right_parts_min;
+                if (j != n)
+                    right_parts_min = Math.min(A[i], B[j]);
+                else
+                    right_parts_min = A[i]; // B[j] Does Not Exist
+                return average(left_parts_max, right_parts_min);
+            }
+            else
+                return left_parts_max;
+        }
+        i = m;
+        j = mid - i;
+        if (A[i - 1] > B[j])
+        { }
+        else
+        {
+            int left_parts_max;
+            if (j != 0)
+                left_parts_max = Math.max(A[i - 1], B[j - 1]);
+            else
+                left_parts_max = A[i - 1]; // B[j - i] Does Not Exist
+            if (even)
+            {
+                int right_parts_min = B[j]; // A[i] Does Not Exist
+                return average(left_parts_max, right_parts_min);
+            }
+            else
+                return left_parts_max;
+        }
+        
+        // Main Iteration
+        i = 1;
+        while (i < m)
+        {
+            j = mid - i;
+            if (B[j - 1] > A[i])
+                i++;
+            //else if (A[i - 1] > B[j])
+                //i--;
+            else
+            {
+                int left_parts_max = Math.max(A[i - 1], B[j - 1]);
+                if (!even)
+                    return left_parts_max;
+                
+                int right_parts_min = Math.min(A[i], B[j]);
+                return average(left_parts_max, right_parts_min);    
+            }
+        }
+        
+        return 404; // This should never occur
+    }
+}
+```  
+  
+### O( log(m + n) ):
+The strategy is the same, with the exception of optimizing the iteration through **i** instead with a binary search. Furthermore binary search inherently stars in the middle and goes left or right, so both **A[i-1]** < **B[j]** and **B[j-1]** < **A[i]** must be checked and the search range must be adjusted accordingly to find the true median. Also, by starting in the middle the boundary cases may be checked last.  
+  
+### My O( log(m + n) ) Code:
+Java
+```
+class Solution {
+    private double average(int a, int b) 
+    {
+        return (a + b) / 2.0;
+    }
+    
+    public double findMedianSortedArrays(int[] nums1, int[] nums2) 
+    {
+        int m = nums1.length;
+        int n = nums2.length;
+        if (m > n) // Ensure nums1 is the smaller array.
+            return findMedianSortedArrays(nums2, nums1);
+        
+        // Relabel the Arrays
+        int[] A = nums1; // smaller
+        int[] B = nums2; // bigger
+        
+        // Odd or Even Total Elements
+        boolean even = true;
+        if ( ((m + n) % 2) != 0 )
+            even = false;
+        
+        // Trivial Cases
+        if ( (m | n) == 0 ) // Both Arrays Empty
+            return 0.0;
+        if (n == 0) // B is Empty
+        {
+            int m_mid = m / 2;  // Integer Division!
+            if (even)           // Even Number of Elements
+                return average(A[m_mid - 1], A[m_mid]);
+            else                // Odd Number of Elements
+                return A[m_mid];
+        }
+        if (m == 0) // A is Empty
+        {
+            int n_mid = n / 2;  // Integer Division!
+            if (even)           // Even Number of Elements
+                return average(B[n_mid - 1], B[n_mid]);
+            else                // Odd Number of Elements
+                return B[n_mid];
+        }
+    
+        // Non-Trivial Case
+        int mid = (m + n + 1) / 2; // Integer Division!          
+        int i = m / 2;
+        int imax = m;
+        int imin = 0;
+        while (imin <= imax) // Binary Search
+        {
+            i = (imin + imax) / 2;
+            int j = mid - i;
+            if ( i < m && B[j - 1] > A[i] ) // i is too small, i must increase
+                imin = i + 1; // look in larger i's
+            else if ( i > 0 && A[i - 1] > B[j] ) // i is too large, i must decrease
+                imax = i - 1; // look in smaller i's
+            else
+            {
+                // Boundary and Even Element Cases
+                int left_parts_max;
+                if (i == 0)
+                    left_parts_max = B[j - 1]; // A[i - 1] Does Not Exist
+                else if (j == 0)
+                    left_parts_max = A[i - 1]; // B[j - 1] Does Not Exist
+                else
+                    left_parts_max = Math.max(A[i - 1], B[j - 1]);
 
+                if (!even)
+                    return left_parts_max;
+                
+                int right_parts_min;
+                if (i == m)
+                    right_parts_min = B[j];
+                else if (j == n)
+                    right_parts_min = A[i];
+                else
+                    right_parts_min = Math.min(A[i], B[j]);
+                return average(left_parts_max, right_parts_min);
+            }
+        }
+        
+        return 404; // This should never occur
+    }
+}
+```
   
 Source: [Solution and explanation by MissMary](https://discuss.leetcode.com/topic/4996/share-my-o-log-min-m-n-solution-with-explanation) on LeetCode.
