@@ -4,7 +4,7 @@ title: Single Number II
 comments: true
 ---
 
-## Single Number II [LeetCode] -- (Medium)
+## [Single Number II](https://leetcode.com/problems/single-number-ii/description/) -- (Medium)
 
 ### Description:
 Given an array of integers, every element appears *three* times except for one, which appears exactly once. Find that single one.  
