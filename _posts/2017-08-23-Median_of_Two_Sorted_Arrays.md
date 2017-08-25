@@ -67,4 +67,4 @@ The strategy is the same, with the exception of optimizing the iteration through
 ### My Code:
 
   
-Source: [Solution and explanation by MissMary[(https://discuss.leetcode.com/topic/4996/share-my-o-log-min-m-n-solution-with-explanation) on LeetCode.
+Source: [Solution and explanation by MissMary](https://discuss.leetcode.com/topic/4996/share-my-o-log-min-m-n-solution-with-explanation) on LeetCode.
