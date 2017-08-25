@@ -8,6 +8,7 @@ comments: true
 
 ### Description:
 Given an array of integers, every element appears *three* times except for one, which appears exactly once. Find that single one.  
+  
 **Note:**  
 Your algorithm should have a linear runtime complexity. Could you implement it without using extra memory?
     
@@ -29,8 +30,8 @@ Make sure to update ones's value before assessing twos's condition. Both variabl
   
 This condition can be shortened to the following logic:
 ```
-ones = (ones ^ num[i]) & (~twos);
-twos = (twos ^ num[i]) & (~ones);
+ones = (ones ^ nums[i]) & (~twos);
+twos = (twos ^ nums[i]) & (~ones);
 ```
 Should twos have the integer stored, & with the inverse will clear the integer stored in ones. Otherwise the inverse of 0 
 (or whatever else remains) will not clear the specific integer in ones. Vice versa for twos.
