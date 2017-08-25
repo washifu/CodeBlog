@@ -4,7 +4,7 @@ title: Single Number
 comments: true
 ---
 
-## Single Number [LeetCode] -- Easy
+## Single Number [LeetCode] -- (Easy)
 
 ### Description:
 Given an array of integers, every element appears *twice* except for one. Find that single one.  
