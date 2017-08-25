@@ -41,6 +41,7 @@ it will update ones and twos according to the states. Therefore, after three occ
 ones and twos will be cleared of the data, leaving only the desired integer in the ones variable.  
   
 ### My Code:
+C++
 ```
 class Solution {
 public:
