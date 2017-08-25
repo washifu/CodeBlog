@@ -4,7 +4,7 @@ title: Median of Two Sorted Arrays
 comments: true
 ---
 
-## Median of Two Sorted Arrays [LeetCode]
+## Median of Two Sorted Arrays [LeetCode] -- (Hard)
 
 ### Description:
 There are two sorted arrays **nums1** and **nums2** of size m and n respectively.
