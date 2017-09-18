@@ -18,28 +18,28 @@ The substrings with different start indexes or end indexes are counted as differ
 The n^3 version
 Java
 ```java
-    static class Solution {
-        public int countSubstrings(String s) {
-            int count = 0;
-            
-            int slen = s.length();
-            for (int i = 0; i < slen - 1; i++) { // first loop
-                for (int j = slen - 1; j > i; j--) { // second loop
-                    if ( checkPalindrome(s, i, j) ) // recursion
-                        count++;
-                        // break;
-                }
-            }
-            return count;
-        }
-        // Instead of boolean, return int
-        public boolean checkPalindrome(String s, int i, int j) {
-            if (j <= i)
-                return true;
-            if ( s.charAt(i) == s.charAt(j) )
-                return checkPalindrome(s, i + 1, j - 1);
-            else
-                return false;
-        }
+class Solution {
+  public int countSubstrings(String s) {
+    if (s == null) // Validation
+        return 0;
+    int count = 0;
+    int slen = s.length();
+    for (int i = 0; i < slen; i++) {
+      count += extend(s, i, i); // Odd
+      count += extend(s, i, i + 1); // Even
     }
+    return count;
+  }
+  
+  public int extend(String s, int left, int right) {
+    int slen = s.length();
+    int pcount = 0;
+    while ( left >= 0 && right < slen && s.charAt(left) == s.charAt(right) ) {
+      pcount++;
+      left--;
+      right++;
+    }
+    return pcount;
+  }
+}
 ```
