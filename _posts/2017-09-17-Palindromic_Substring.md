@@ -15,7 +15,6 @@ The substrings with different start indexes or end indexes are counted as differ
 ~
   
 ### My Code:
-The n^3 version
 Java
 ```java
 class Solution {
