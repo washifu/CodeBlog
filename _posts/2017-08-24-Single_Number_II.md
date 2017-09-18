@@ -45,7 +45,7 @@ ones and twos will be cleared of the data, leaving only the desired integer in t
   
 ### My Code:
 C++
-```
+```c++
 class Solution {
 public:
     int singleNumber(vector<int>& nums) {
