@@ -65,7 +65,7 @@ Since the linear time solution iterates through **A**, only the **B[j-1]** < **A
   
 ### My O(n) Code:
 Java
-```
+```java
 class Solution {
     private double average(int a, int b) 
     {
@@ -181,7 +181,7 @@ The strategy is the same, with the exception of optimizing the iteration through
   
 ### My O( log(m + n) ) Code:
 Java
-```
+```java
 class Solution {
     private double average(int a, int b) 
     {
