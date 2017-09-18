@@ -72,7 +72,7 @@ public class Solution {
             int n = in.nextInt();
             int c = in.nextInt();
             int m = in.nextInt();
-            int chocolate = n/c;
+            int chocolate = n / c;
             int wrapper = chocolate;
             while ( wrapper >= m) {
                 chocolate += wrapper / m;
