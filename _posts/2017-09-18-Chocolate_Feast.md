@@ -57,28 +57,29 @@ Bobby makes the following  trips to the store:
 ### My Code:
 Java
 ```java
-class Solution {
-  public int countSubstrings(String s) {
-    if (s == null) // Validation
-        return 0;
-    int count = 0;
-    int slen = s.length();
-    for (int i = 0; i < slen; i++) {
-      count += extend(s, i, i); // Odd
-      count += extend(s, i, i + 1); // Even
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        int t = in.nextInt();
+        for(int a0 = 0; a0 < t; a0++){
+            int n = in.nextInt();
+            int c = in.nextInt();
+            int m = in.nextInt();
+            int chocolate = n/c;
+            int wrapper = chocolate;
+            while ( wrapper >= m) {
+                chocolate += wrapper / m;
+                wrapper = wrapper / m  + wrapper % m;
+            }
+            System.out.println(chocolate);
+        }
     }
-    return count;
-  }
-  
-  public int extend(String s, int left, int right) {
-    int slen = s.length();
-    int pcount = 0;
-    while ( left >= 0 && right < slen && s.charAt(left) == s.charAt(right) ) {
-      pcount++;
-      left--;
-      right++;
-    }
-    return pcount;
-  }
 }
 ```
