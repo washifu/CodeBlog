@@ -26,7 +26,7 @@ In this way, all sets of double integers will be stored and deleted, leaving onl
   
 ### My Code:
 C++
-```
+```c++
 class Solution {
 public:
     int singleNumber(vector<int>& nums) {
