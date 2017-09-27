@@ -59,4 +59,4 @@ public:
     }
 };
 ```
-Source: [Solution by againest1's and Igzvalle and woshidaishu's comments] on LeetCode.(https://discuss.leetcode.com/topic/2031/challenge-me-thx/16?page=1)
+Source: [Solution by againest1's and Igzvalle and woshidaishu's comments](https://discuss.leetcode.com/topic/2031/challenge-me-thx/16?page=1) on LeetCode.
