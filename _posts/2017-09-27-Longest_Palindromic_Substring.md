@@ -48,7 +48,7 @@ class Solution {
 ```
 
 ### My Optimal Code
-O(nlog(n)) ?
+O(n^2) - Fastest Quadratic Solution (Totally Not Worth It)
 Java
 ```java
 class Solution {
