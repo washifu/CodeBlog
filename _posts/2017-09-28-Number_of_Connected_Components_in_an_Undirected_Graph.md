@@ -42,19 +42,15 @@ class Solution {
         for (int i = 0; i < n; i++) // Set all elements as their own root
             set[i] = i;
         
-        int components = n;
-        for (int i = 0; i < edges.length; i++) {
-            components = union(set, edges[i][0], edges[i][1]);
-        }
+        for (int[] edge : edges) // Union All Edges
+            union(set, edge[0], edge[1]);
         
-        HashSet<Integer> roots = new HashSet<Integer>(n);
+        int components = 0; // Count Components
         for (int i = 0; i < n; i++) {
-            int currentRoot = findRoot(set[i], set);
-            if ( !roots.contains(currentRoot) )
-                roots.add(currentRoot);
+            if (set[i] == i)
+                components++;       
         }
-        
-        return roots.size();
+        return components;
     }
 
     // Find root of node/element
@@ -66,14 +62,48 @@ class Solution {
     }
     
     // Union Two Sets
-    public static int union(int[] set, int i, int j) {
+    public static void union(int[] set, int i, int j) {
         int root1 = findRoot(i, set); 
         int root2 = findRoot(j, set);
         if (root1 == root2) // Shares root
-            return 0;
+            return;
         
         set[root1] = root2; // Set root of set 1 to point to root 2
-        return -1;
+        return;
+    }
+}
+```
+
+### My Slightly Faster Code:
+Java
+```java
+class Solution {
+    public int countComponents(int n, int[][] edges) {
+        int[] set = new int[n]; // Keeps track of root
+        for (int i = 0; i < n; i++) // Set all elements as their own root
+            set[i] = i;
+        
+        for (int[] edge : edges) { // Union All Edges
+            int start = edge[0];
+            int end = edge[1];
+            
+            while (set[start] != start)
+                start = set[start];
+            
+            while (set[end] != end)
+                end = set[end];
+            
+            if (start == end)
+                continue;
+
+            set[end] = start;
+        }
+        
+        for (int i = 0; i < n; i++) { // Count Components
+            if (set[i] == i)
+                components++;       
+        }
+        return components;
     }
 }
 ```
