@@ -1,6 +1,7 @@
 ---
 layout: page
 title: About
+comment: false
 ---
 
 Wasif Islam
