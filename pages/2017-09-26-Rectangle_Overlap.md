@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: page
 title: Rectangle Area
 comments: true
 ---
@@ -13,7 +13,7 @@ Each rectangle is defined by its bottom left corner and top right corner as show
 
 ![Diagram][exampleDiagram]
 
-[exampleDiagram] : https://github.com/washifu/codeblog/blob/master/_images/rectangle_area.png?raw=true
+[exampleDiagram]: https://github.com/washifu/codeblog/blob/master/_images/rectangle_area.png?raw=true
 
 Assume that the total area is never beyond the maximum possible value of int.  
   
