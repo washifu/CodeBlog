@@ -1,11 +1,11 @@
 ---
 layout: page
 title: About
-comment: false
+comments: false
 ---
 
 Wasif Islam
-<img src="https://github.com/washifu/codeblog/blob/master/_images/me.jpg?raw=true" alt="Wasif Islam" style="width: 40px;"/>
+<img src="https://github.com/washifu/codeblog/blob/master/_images/me.jpg?raw=true" alt="Wasif Islam" style="width: 400px;"/>
 
 <dl>
   <h3>Saint Olaf College (2012)</h3>
