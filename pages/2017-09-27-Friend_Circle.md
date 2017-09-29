@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: page
 title: Friend Circle
 comments: true
 ---
