@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: page
 title: Median of Two Sorted Arrays
 comments: true
 ---
