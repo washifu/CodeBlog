@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: page
 title: Number of Connected Components in an Undirected Graph
 comments: true
 ---
