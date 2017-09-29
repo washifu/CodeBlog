@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: page
 title: Single Number I
 comments: true
 ---
