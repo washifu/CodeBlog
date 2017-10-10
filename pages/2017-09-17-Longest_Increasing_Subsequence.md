@@ -49,5 +49,31 @@ class Solution {
 The nlog(n) solution.
 Java
  ```java
- 
- ```
+ class Solution {
+    public int lengthOfLIS(int[] nums) {
+        // Empty Set or Null Case
+        if (nums == null || nums.length == 0)
+            return 0;
+        
+        // Construct Ordered List of LIS
+        ArrayList<Integer> ordered = new ArrayList<Integer>(nums.length);
+        for (int i = 0; i < nums.length; i++) {
+            // Ordered list is empty
+            if (ordered.size() == 0)
+                ordered.add(nums[i]);
+            // Number is greater, append to ordered list
+            else if ( nums[i] > ordered.get(ordered.size() - 1) )
+                ordered.add(nums[i]);
+            // Number is equal to greatest number in ordered list, do nothing
+            else if ( nums[i] == ordered.get(ordered.size() - 1) )
+                continue;
+            // Number is less than greatest number is ordered list, 
+            // find smallest number in list greater than number and replace
+            // This will identify following small numbers that are in increasing order
+            else
+                ordered.set( -Collections.binarySearch(ordered, nums[i]) - 1, nums[i]) ;
+        }
+        return ordered.size();
+    }
+}
+```
