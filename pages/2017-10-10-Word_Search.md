@@ -25,7 +25,7 @@ Given **board** =
 **word** = ```"ABCB"```, -> returns ```false```.
   
 ### Solution:
-DFS from each starting point in the word matrix and invalidate checked letters, revalidate if recursion fails.
+DFS from each starting point in the word matrix and invalidate checked letters, revalidate when recursion fails.
     
 ### My Code:  
 Java
