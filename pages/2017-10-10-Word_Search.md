@@ -28,7 +28,7 @@ Given **board** =
 DFS from each starting point in the word matrix and invalidate checked letters, revalidate when recursion fails.
     
 ### My Code:  
-Java
+Java  O( 4^(m * n) )  
 ```java
 class Solution {
     public boolean exist(char[][] board, String word) {
