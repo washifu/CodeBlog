@@ -34,7 +34,7 @@ public static class Point {
 
 **Example 1:**
 Given the maze =
-```
+```java
 {
   { 0, 0, 0 }
   { 0, 2, 0 }
@@ -46,7 +46,7 @@ Where Mario is at ```(0,0)``` and Peach is at ```(2,2)```, the shortest distance
 
 **Example 2:**
 Given the maze =
-```
+```java
 {
   { 0, 0, 0 }
   { 2, 0, 1 }
