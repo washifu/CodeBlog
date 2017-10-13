@@ -32,9 +32,6 @@ public static class Point {
 }
 ```
 
-
-The word can be constructed from letters of sequentially adjacent cell, where "adjacent" cells are those horizontally or vertically neighboring. The same letter cell may not be used more than once.
-
 **Example 1:**
 Given the maze =
 ```
