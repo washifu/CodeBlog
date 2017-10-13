@@ -57,7 +57,7 @@ Where Mario is at ```(2,2)``` and Peach is at ```(0,2)```, the shortest distance
   
 **Example 3:**
 Given the maze =
-```
+```java
 {
   { 0, 1, 2 }
   { 2, 0, 1 }
