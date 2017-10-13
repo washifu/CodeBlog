@@ -72,3 +72,30 @@ class Solution {
     }
 }
 ```
+
+### My Slow Simple Code
+Java ~O(n!)
+```java
+class Solution {
+    public boolean wordBreak(String s, List<String> wordDict) {
+        // HashSet dictionary for quick comparison
+        HashSet<String> dict = new HashSet<String>();
+        for (String word : wordDict) {
+            dict.add(word);
+        }
+        
+        return wordSearch(s, dict);
+    }
+    
+    private static boolean wordSearch(String word, HashSet<String> dict) {
+        if ( dict.contains(word) ) // Last sub word is in wordDict
+            return true;
+        
+        for (int i = 1; i < word.length(); i++) {
+            if ( dict.contains(word.substring(0, i)) && wordSearch(word.substring(i), dict) )
+                return true; // Word Search Complete
+        }
+        return false; // No substrings make a word in wordDict
+    }
+}
+```
