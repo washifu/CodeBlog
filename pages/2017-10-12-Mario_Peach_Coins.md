@@ -4,7 +4,7 @@ title: Mario Peach Maze with Coins
 comments: true
 ---
 
-## [Mario Peach Maze with Coins] -- (Hard)
+## Mario Peach Maze with Coins -- (Hard)
 **Original Details, Common Problem**
 
 ### Description:
@@ -17,7 +17,7 @@ represents coins.
 Find the distance of the shortest path. If Mario is unable to reach Peach or unable to collect all the coins, return ```-1```.
 
 The maze is an ```n``` by ```n``` int[][] matrix.
-There are ```0 <= k &le 10``` coins.
+There are ```html 0 <= k &le 10``` coins.
 Mario and Peach's locations are passed into the function as ```Point``` objects.
 
 ```
@@ -98,50 +98,46 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.HashMap;
 
-public class TomAndJerry {
+public class MarioMaze {
 	
-	private Point tom = new Point(0,0);	
-	private Point jerry;
 	private int shortestDistance = Integer.MAX_VALUE;
 	private int[] shortestRoute;
-	private int cheeseCount = 0;
+	private int coinCount = 0;
 	
-	public int shortestSteps(int x, int y, int[][] maze) {
-		jerry = new Point(y, x);
-		
-		// Path to Jerry? ~O(5n^2)
-		if (shortestPath(tom, jerry, maze) == Integer.MAX_VALUE) // No Path to Jerry
+	public int shortestSteps(Point mario, Point peach, int[][] maze) {
+		// Path to Peach? ~O(5n^2)
+		if (shortestPath(mario, peach, maze) == Integer.MAX_VALUE) // No Path to Peach
 			return -1;
 		
-		// Locate the Cheese O(n^2)
-		HashMap<Integer, Point> cheeses = new HashMap<Integer, Point>(12);
-		cheeses.put(0, tom); // Add Tom
-		cheeseCount++;
+		// Locate the Coins O(n^2)
+		HashMap<Integer, Point> coins = new HashMap<Integer, Point>(12);
+		coins.put(0, mario); // Add Mario
+		coinCount++;
 		for (int row = 0; row < maze.length; row++) {
 			for (int col = 0; col < maze.length; col++) {
 				if (maze[row][col] == 2) {
-					cheeses.put(cheeseCount, new Point(row, col));
-					cheeseCount++;
+					coins.put(coinCount, new Point(row, col));
+					coinCount++;
 				}
 			}
 		}
-		cheeses.put(cheeseCount, jerry);
-		cheeseCount++; // Number of cheese plus 2 (Tom and Jerry)
+		coins.put(coinCount, peach);
+		coinCount++; // Number of coins plus 2 (Mario and Peach)
 		
-		if (cheeseCount == 2)
-			return shortestPath(tom, jerry, maze);
+		if (coinCount == 2)
+			return shortestPath(mario, peach, maze);
 				
 		// Generate Graph ~O(k(k + 1)/2) = ~O(k^2)
-		int[][] paths = new int[cheeseCount][cheeseCount]; 
-		// Tom: Index 0, Jerry: Index cheeseCount - 1
+		int[][] paths = new int[coinCount][coinCount]; 
+		// Mario: Index 0, Peach: Index coinCount - 1
 		for (int i = 0; i < paths.length; i++) {
 			for (int j = i; j < paths.length; j++) {
 				
 				if (i == j) // Loop is Zero Distance
 					paths[i][j] = 0;
 				
-				else { // Compute Shortest Path Between Cheeses/Tom/Jerry
-					int path = shortestPath(cheeses.get(i), cheeses.get(j), maze);
+				else { // Compute Shortest Path Between Coins/Mario/Peach
+					int path = shortestPath(coins.get(i), coins.get(j), maze);
 					if (path == Integer.MAX_VALUE)
 						return -1;
 					paths[i][j] = path;
@@ -150,15 +146,15 @@ public class TomAndJerry {
 			}
 		}
 		
-		// Ensure No Path Between Tom and Jerry
-		paths[0][cheeseCount - 1] = Integer.MAX_VALUE; // No Tom to Jerry
-		paths[cheeseCount - 1][0] = Integer.MAX_VALUE; // No Jerry to Tom
+		// Ensure No Path Between Mario and Peach
+		paths[0][coinCount - 1] = Integer.MAX_VALUE; // No Mario to Peach
+		paths[coinCount - 1][0] = Integer.MAX_VALUE; // No Peach to Mario
 		
-		// Compute All Permutations of Paths ~O(n!)
-		boolean[] visited = new boolean[cheeseCount];
-		int[] route = new int[cheeseCount];
-		route[0] = 0; // Start at Tom
-		route[cheeseCount - 1] = cheeseCount - 1; // End at Jerry
+		// Compute All Permutations of Paths O(n!)
+		boolean[] visited = new boolean[coinCount];
+		int[] route = new int[coinCount];
+		route[0] = 0; // Start at Mario
+		route[coinCount - 1] = coinCount - 1; // End at Peach
 		int distance = 0;
 		permutePaths(0, visited, paths, route, distance, 1);
 		return shortestDistance;
@@ -166,7 +162,7 @@ public class TomAndJerry {
 	
 	/**
 	 * shortestPath
-	 * Compute shortest path between any two points on board
+	 * Compute shortest path between any two points in maze
 	 * @return distance
 	 */
 	private static int shortestPath(Point start, Point end, int[][] maze) {
@@ -228,16 +224,16 @@ public class TomAndJerry {
 	 */
 	private void permutePaths(int current, boolean[] visited, int[][] paths, 
 									 int[] route, int distance, int i) {
-		if (i == cheeseCount - 1) { // Only Jerry Left ~O(1)
-			distance += paths[current][cheeseCount - 1]; // Add distance to Jerry from last cheese 
+		if (i == coinCount - 1) { // Only Peach Left
+			distance += paths[current][coinCount - 1]; // Add distance to Peach from last coin 
 			if (distance < shortestDistance) {
 				shortestDistance = distance;
 				setShortestRoute( route.clone() );
 			} // else path and distance are discarded
 		}
 		
-		// Check remaining cheese and take uncounted path DFS ~O(n!)
-		for (int k = 1; k < cheeseCount - 1; k++) {
+		// Check remaining coins and take uncounted path DFS
+		for (int k = 1; k < coinCount - 1; k++) {
 			if (!visited[k]) {
 				visited[k] = true;
 				route[i] = k;
@@ -254,14 +250,14 @@ public class TomAndJerry {
 	public void setShortestRoute(int[] shortestRoute) {
 		this.shortestRoute = shortestRoute;
 	}
+}
 
-	private static class Point {
-		int row;
-		int col;
-		private Point(int row, int col) {
-			this.row = row;
-			this.col = col;
-		}
+class Point {
+	int row;
+	int col;
+	Point(int row, int col) {
+		this.row = row;
+		this.col = col;
 	}
 }
 ```  
