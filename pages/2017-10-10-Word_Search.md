@@ -38,36 +38,35 @@ class Solution {
             return false;
         
         // Lengths
-        int wordLen = word.length();
-        int rowLen = board.length;
-        int colLen = board[0].length;
+        int l = word.length();
+        int m = board.length;
+        int n = board[0].length;
         char[] wordArr = word.toCharArray();
         
         // Word longer than all letters in board
-        if (wordLen > rowLen * colLen) 
+        if (l > m * n) 
             return false;
         
         // Word Search
-        for (int row = 0; row < rowLen; row++)
-            for (int col = 0; col < colLen; col++)
+        for (int row = 0; row < m; row++)
+            for (int col = 0; col < n; col++)
                 if ( wordArr[0] == board[row][col] && // Check each letter and DFS
-                     wordSearch(row, col, wordArr, board, rowLen, colLen, 0) )
+                     wordSearch(row, col, wordArr, board, m, n, 0) )
                     return true;
         
         return false;
     }
     
     private static boolean wordSearch(int row, int col, char[] word, char[][] board, 
-                                      int rowLen, int colLen, int i) {
+                                      int m, int n, int i) {
         if (i == word.length)
             return true;
-        if ( row < rowLen && row >= 0 && col < colLen && col >= 0 &&
-             board[row][col] == word[i] ) {
+        if ( row < m && row >= 0 && col < n && col >= 0 && board[row][col] == word[i] ) {
             board[row][col] = 0; // Invalidate Checked Letter
-            boolean match = ( wordSearch(row, col + 1, word, board, rowLen, colLen, i + 1) || // Right
-                              wordSearch(row, col - 1, word, board, rowLen, colLen, i + 1) || // Left
-                              wordSearch(row + 1, col, word, board, rowLen, colLen, i + 1) || // Down
-                              wordSearch(row - 1, col, word, board, rowLen, colLen, i + 1) ); // Up
+            boolean match = ( wordSearch(row, col + 1, word, board, m, n, i + 1) || // Right
+                              wordSearch(row, col - 1, word, board, m, n, i + 1) || // Left
+                              wordSearch(row + 1, col, word, board, m, n, i + 1) || // Down
+                              wordSearch(row - 1, col, word, board, m, n, i + 1) ); // Up
             board[row][col] = word[i]; // Revalidated Checked Letter Since DFS Completed
             return match;
         }
