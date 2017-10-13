@@ -18,8 +18,57 @@ Return true because ``"leetcode"``` can be segmented as ```"leet code"```.
 ### Solution:
 
     
-### My Code:  
-Java  O( 4^(m * n) )  
+### My Slow Code:  
+Java  ~O( 26<sup>l</sup> * n )  
 ```java
+class Solution {
+    private Node root = new Node();
+    
+    private class Node {
+        HashMap<Character, Node> letters = new HashMap<Character, Node>();
+        boolean word = false;
+    }
+    
+    public boolean wordBreak(String s, List<String> wordDict) {
+        buildTrie(wordDict);
+        return trieSearch(root, s.toCharArray(), 0);
+    }
+    
+    private boolean trieSearch(Node node, char[] word, int i) {
+        if (i == word.length) { // Word break complete
+            if (node.word)
+                return true;
+            else // Last set of letters do not make word in wordDict
+                return false;
+        }
 
+        char c = word[i]; // Current letter        
+        if ( !node.letters.containsKey(c) ) // No such word in wordDict
+            return false;
+        
+        Node nextNode = node.letters.get(c);
+        if ( nextNode.word && trieSearch(root, word, i + 1) ) // Word Break
+            return true;
+        
+        return trieSearch(nextNode, word, i + 1);
+    }
+    
+    private void buildTrie(List<String> wordDict) {
+        HashSet<String> uniqueWords = new HashSet<String>();
+        for (String word : wordDict) {
+            Node node = root;
+            if (uniqueWords.contains(word))
+                continue;
+            else
+                uniqueWords.add(word);
+            for ( char c : word.toCharArray() ) {
+                if ( !node.letters.containsKey(c) ) {
+                    node.letters.put( c, new Node() );
+                }
+                node = node.letters.get(c);
+            }
+            node.word = true;
+        }
+    }
+}
 ```
