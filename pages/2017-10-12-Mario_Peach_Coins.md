@@ -16,8 +16,8 @@ through which Mario cannot travel. ```0``` represents traversable squares in the
 represents coins.
 Find the distance of the shortest path. If Mario is unable to reach Peach or unable to collect all the coins, return ```-1```.
 
-The maze is an ```n``` by ```n``` int[][] matrix.
-There are ```html 0 <= k &le 10``` coins.
+The maze is an ```n``` by ```n``` ```int[][]``` matrix.
+There are ```html 0 <= k <= 10``` coins.
 Mario and Peach's locations are passed into the function as ```Point``` objects.
 
 ```
@@ -68,7 +68,7 @@ Where Mario is at ```(1,1)``` and Peach is at ```(2,2)```, the shortest distance
   
 ### Solution:
 Some quick path may be found, but to find the optimal shortest path is at best exponential. Here is an algorithm
-for the [Shortest Hamiltonian Path in Polynomial Time ```O(2<sup>n</sup> * n<sup>2</sup>)```](https://sites.google.com/site/indy256/algo/shortest_hamiltonian_path).  
+for the [Shortest Hamiltonian Path in Polynomial Time O(2<sup>n</sup> * n<sup>2</sup>)](https://sites.google.com/site/indy256/algo/shortest_hamiltonian_path).  
   
 I will demonstrate the ```O(n!)``` solution.  
 First, see if there exist a path between Mario and Peach, if not return ```-1```.
