@@ -96,5 +96,100 @@ class Solution {
 ### My Code:  
 Java  O( 4<sup>mn</sup> * l )  
 ```java
+class Solution {
+    
+    private static class Node {
+        public HashMap<Character, Node> letters = new HashMap<Character, Node>();
+        public String word;
+    }
+    
+    public List<String> findWords(char[][] board, String[] words) {
+        
+        List<String> correctWords = new Stack<String>();
+        
+        // Empty - Null Cases
+        if ( words == null || words.length == 0 || 
+             board == null || board.length == 0 || board[0].length == 0 )
+            return correctWords;
+        
+        // Lengths
+        int m = board.length;
+        int n = board[0].length;
+        
+        // Build Trie
+        Node root = buildTrie(words, m, n);
+        
+        // Word Search
+        for (int row = 0; row < m; row++) {
+            for (int col = 0; col < n; col++) {
+                trieSearch(row, col, m, n, board, root, correctWords);
+            }
+        }
+        
+        // Found Words
+        return correctWords;
+    }
+    
+    private static void trieSearch(int row, int col, int m, int n, char[][] board,
+                                      Node node, List<String> correctWords) {     
+        
+        char c = board[row][col];
+        if ( c == 0 || !node.letters.containsKey(c) ) // No more words match this letter on board
+            return;
+        
+        // Check Trie and Add Words
+        Node nextNode = node.letters.get(c);
+        if (nextNode.word != null) { // Found a word
+            correctWords.add(nextNode.word);
+            removeWord(node, nextNode, c); // Remove word from trie to avoid duplicates in correctWords
+        }
+        
+        // DFS on Board, Trie Search
+        board[row][col] = 0; // Invalidate Letter on Board
+        // Board Bounds Check and DFS trieSearch
+        if (row < m - 1)
+            trieSearch(row + 1, col, m, n, board, nextNode, correctWords); // Right
+        if (row >= 1)
+            trieSearch(row - 1, col, m, n, board, nextNode, correctWords); // Left
+        if (col < n - 1)
+            trieSearch(row, col + 1, m, n, board, nextNode, correctWords); // Up
+        if (col >= 1)
+            trieSearch(row, col - 1, m, n, board, nextNode, correctWords); // Down
+        board[row][col] = c; // Revalidate Letter on Board   
+    }
+    
+    private Node buildTrie(String[] words, int m, int n) {
+        Node root = new Node();
+        HashSet<String> uniqueWords = new HashSet<String>(words.length);
+        for (String word : words) {
+            if ( word == null || word.length() == 0 || word.length() > m * n ||
+                 uniqueWords.contains(word) ) {
+                continue;
+            }
+            uniqueWords.add(word);
+            char[] wordArr = word.toCharArray();
+            Node node = root;
+            for (char c : wordArr) {
+                if (!node.letters.containsKey(c)) { // Trie contains letter path
+                    node.letters.put(c, new Node()); // Add new letter path
+                }
+                node = node.letters.get(c);
+            }
+            node.word = word; // Add end of word to trie
+        }
+        return root;
+    }
+    
+    private static void removeWord(Node node, Node nextNode, char c) {
+        nextNode.word = null;
+        
+        //if (nextNode.letters.isEmpty()) // If no more letters beyond this chain
+            //node.letters.remove(c);
+    }
+}
+```
 
+### My Slightly Faster Code:  
+Java  O( 4<sup>mn</sup> * l )  
+```java
 ```
