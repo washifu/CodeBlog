@@ -99,3 +99,42 @@ class Solution {
     }
 }
 ```
+
+### My Solution
+Java O(n<sup>2</sup>)
+```java
+class Solution {
+    public boolean wordBreak(String s, List<String> wordDict) {
+        // HashSet dictionary for quick comparison
+        HashSet<String> dict = new HashSet<String>();
+        for (String word : wordDict) {
+            dict.add(word);
+        }
+        
+        // Trivial Case
+        if (dict.contains(s))
+            return true;
+        
+        // Easier Variable Names
+        String word = s;
+        int n = s.length();
+        
+        boolean[] prefixIsWords = new boolean[n];
+        for (int i = 0; i < n; i++) {
+            if ( !prefixIsWords[i] && dict.contains(word.substring(0, i + 1)) )
+                prefixIsWords[i] = true;
+            
+            if (prefixIsWords[i]) {
+                for (int j = i + 1; j < n; j++) {
+                    if ( !prefixIsWords[j] && dict.contains(word.substring(i + 1, j + 1)) )
+                        prefixIsWords[j] = true;
+                    
+                    if (j == n - 1 && prefixIsWords[j]) // Last sub word is in wordDict
+                        return true;
+                }
+            }
+        }
+        return false; // Word cannot be broken
+    }
+}
+```
