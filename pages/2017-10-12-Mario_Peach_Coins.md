@@ -5,7 +5,7 @@ comments: true
 ---
 
 ## Mario Peach Maze with Coins -- (Hard)
-**Original Details, Common Problem**
+Original Problem | Common Idea
 
 ### Description:
 Mario wants to collect all the coins in the maze and then rescue Peach.
