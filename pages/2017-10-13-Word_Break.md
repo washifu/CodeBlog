@@ -15,10 +15,9 @@ dict = ```["leet", "code"]```.
   
 Return true because ``"leetcode"``` can be segmented as ```"leet code"```.  
   
-### Solution:
-
-    
-### My Slow Code:  
+### Solution:  
+  
+### My Slow Code (No DP)  
 Java  ~O( 26<sup>l</sup> * n )  
 ```java
 class Solution {
@@ -73,8 +72,8 @@ class Solution {
 }
 ```
 
-### My Slow Simple Code
-Java ~O(n!)
+### My Slow Simple Code (No DP)  
+Java ~O(n!)  
 ```java
 class Solution {
     public boolean wordBreak(String s, List<String> wordDict) {
@@ -100,8 +99,8 @@ class Solution {
 }
 ```
 
-### My Solution
-Java O(n<sup>2</sup>)
+### My Java Solution  
+O(n<sup>2</sup>)  
 ```java
 class Solution {
     public boolean wordBreak(String s, List<String> wordDict) {
@@ -143,4 +142,51 @@ class Solution {
         return false; // Word cannot be broken
     }
 }
+```
+
+### My C++ Solution  
+O(n<sup>2</sup>)  
+```c++
+class Solution {
+public:
+    bool wordBreak(string s, vector<string>& wordDict) {
+        
+        // Build Dictionary
+        for (string word : wordDict) {
+            dict.insert(word);
+            if (word.size() > max)
+                max = word.size();
+            if (word.size() < min)
+                min = word.size();
+        }
+        n = s.size();
+        word = s;
+        int dp[n] = {0};
+        suffixes = dp;
+        return wordSearch(0) == 1;
+    }
+    
+private:
+    unordered_set<string> dict;
+    int n;
+    string word;
+    int max = 0;
+    int min = INT_MAX;
+    int* suffixes;
+    
+    int wordSearch(int start) {        
+        if (start == n) 
+            return 1;
+        
+        if (suffixes[start] != 0) 
+            return suffixes[start];
+        
+        for (int i = min - 1; i < max && i < n - start; i++) {
+            if ( dict.count(word.substr(start, i + 1)) && wordSearch(start + i + 1) == 1 ) { 
+                return suffixes[start] = 1;
+            }
+        }
+        return suffixes[start] = 2;
+    }
+};
 ```
