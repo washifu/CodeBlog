@@ -106,9 +106,15 @@ Java O(n<sup>2</sup>)
 class Solution {
     public boolean wordBreak(String s, List<String> wordDict) {
         // HashSet dictionary for quick comparison
+        int max = 0;
+        int min = Integer.MAX_VALUE;
         HashSet<String> dict = new HashSet<String>();
         for (String word : wordDict) {
             dict.add(word);
+            if (word.length() > max)
+                max = word.length();
+            if (word.length() < min)
+                min = word.length();
         }
         
         // Trivial Case
@@ -120,12 +126,12 @@ class Solution {
         int n = s.length();
         
         boolean[] prefixIsWords = new boolean[n];
-        for (int i = 0; i < n; i++) {
+        for (int i = min - 1; i < n; i++) {
             if ( !prefixIsWords[i] && dict.contains(word.substring(0, i + 1)) )
                 prefixIsWords[i] = true;
             
             if (prefixIsWords[i]) {
-                for (int j = i + 1; j < n; j++) {
+                for (int j = i + min; j <= i + max + 1 && j < n; j++) {
                     if ( !prefixIsWords[j] && dict.contains(word.substring(i + 1, j + 1)) )
                         prefixIsWords[j] = true;
                     
