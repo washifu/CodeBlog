@@ -28,7 +28,7 @@ You may assume no duplicates in the word list.
 You may assume *beginWord* and *endWord* are non-empty and are not the same.
   
 ### Solution:  
-BFS from *beginWord* until *endWord* is found. For massive dictionaries, realize that the only possible next word are words where only one 
+BFS from *beginWord* until *endWord* is found. For massive dictionaries, realize that the only possible next word are words where only one letter off. For small dictionaries, you can just check for one letter off words, but at most there will be 26 * w (the number of letters in the words) possible next words. So, just check all permutations of the current word in dictionary to generate words in next frontier/toVisit for each word in the current frontier.
   
 ### My Code 
 C++ O( 26<sup>2</sup>w<sup>3</sup>)
