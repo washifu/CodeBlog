@@ -91,8 +91,7 @@ private:
 Java (Same Algorithm)
 ```java
 class Solution {
-    public List<List<String>> findLadders(String beginWord, String endWord, List<String> wordList) {
-        List<List<String>> chains = new ArrayList<>();
+    public int ladderLength(String beginWord, String endWord, List<String> wordList) {
         // Build Dictionary
         HashSet<String> dict = new HashSet<String>();
         for (String word : wordList) 
@@ -103,17 +102,14 @@ class Solution {
             return chains;
         
         // Initializations
-        HashMap<String, ArrayList<String>> chainMap = new HashMap<String, ArrayList<String>>();
         ArrayList<String> toVisit = new ArrayList<String>();
-        chainMap.put(beginWord, new ArrayList<String>());
-        chainMap.put(endWord, new ArrayList<String>());
         toVisit.add(beginWord);
         int level = 1;
             
         while ( !toVisit.isEmpty() ) {
             for (String curr : toVisit) {
                 if ( curr.compareTo(endWord) == 0 ) {
-                    chainMap.get(endWord).add(curr); // Add curr to parent list of strings of endWord in chainMap
+                    return level; // Shortest chain to endWord
                 }
             }
             ArrayList<String> nextToVisit = new ArrayList<String>();
@@ -122,7 +118,7 @@ class Solution {
             level++;
         }
         
-        return chains;
+        return 0;
     }
     
     private void addNewWords(ArrayList<String> toVisit, ArrayList<String> nextToVisit, HashSet<String> dict) {
