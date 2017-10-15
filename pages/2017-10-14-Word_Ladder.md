@@ -86,3 +86,59 @@ private:
     }
 };
 ```
+
+### My Code
+Java (Same Algorithm)
+```java
+class Solution {
+    public List<List<String>> findLadders(String beginWord, String endWord, List<String> wordList) {
+        List<List<String>> chains = new ArrayList<>();
+        // Build Dictionary
+        HashSet<String> dict = new HashSet<String>();
+        for (String word : wordList) 
+            dict.add(word);
+        
+        // endWord in dict ?
+        if ( !dict.contains(endWord) )
+            return chains;
+        
+        // Initializations
+        HashMap<String, ArrayList<String>> chainMap = new HashMap<String, ArrayList<String>>();
+        ArrayList<String> toVisit = new ArrayList<String>();
+        chainMap.put(beginWord, new ArrayList<String>());
+        chainMap.put(endWord, new ArrayList<String>());
+        toVisit.add(beginWord);
+        int level = 1;
+            
+        while ( !toVisit.isEmpty() ) {
+            for (String curr : toVisit) {
+                if ( curr.compareTo(endWord) == 0 ) {
+                    chainMap.get(endWord).add(curr); // Add curr to parent list of strings of endWord in chainMap
+                }
+            }
+            ArrayList<String> nextToVisit = new ArrayList<String>();
+            addNewWords(toVisit, nextToVisit, dict);
+            toVisit = nextToVisit;
+            level++;
+        }
+        
+        return chains;
+    }
+    
+    private void addNewWords(ArrayList<String> toVisit, ArrayList<String> nextToVisit, HashSet<String> dict) {
+        for (String word : toVisit) {
+            for (int i = 0; i < word.length(); i++) {  
+                for (int n = 0; n < 26; n++) {
+                    char c = (char) ('a' + n);
+                    String oneOffWord = new StringBuilder(word.substring(0, i)).append(c).
+                                                          append(word.substring(i + 1)).toString();
+                    if ( dict.contains(oneOffWord) ) {
+                        nextToVisit.add(oneOffWord);
+                        dict.remove(oneOffWord);
+                    }
+                }
+            }
+        }
+    }
+}
+```
