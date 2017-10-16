@@ -4,7 +4,7 @@ title: Word Ladder II
 comments: true
 ---
 
-## [Word Ladder II](https://leetcode.com/problems/word-ladder-ii/description/) -- (Medium)
+## [Word Ladder II](https://leetcode.com/problems/word-ladder-ii/description/) -- (Hard)
 
 ### Description:
 Given two words (**beginWord** and **endWord**), and a dictionary's word list, find all shortest transformation sequence(s) from **beginWord** to **endWord**, such that:  
