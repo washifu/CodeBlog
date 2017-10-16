@@ -29,14 +29,14 @@ Java  O(n)
 ```java
 class Solution {
     public int rob(int[] nums) {
-        int steal = 0;
-        int notSteal = 0;
+        int r = 0;
+        int o = 0;
         for (int i = 0; i < nums.length;  i++) {
-            int prevSteal = steal;
-            steal = notSteal + nums[i];
-            notSteal = Math.max(prevSteal, notSteal);
+            int prevr = r;
+            r = o + nums[i];
+            o = Math.max(prevr, o);
         }
-        return Math.max(steal, notSteal);
+        return Math.max(r, o);
     }
 }
 ```
