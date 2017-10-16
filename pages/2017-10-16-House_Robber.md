@@ -1,10 +1,10 @@
 ---
 layout: page
-title: Word Break
+title: House Robber
 comments: true
 ---
 
-## [Word Break](https://leetcode.com/problems/word-break/description/) -- (Medium)
+## [House Robber](https://leetcode.com/problems/house-robber/description/) -- (Easy)
 
 ### Description:
 You are a professional robber planning to rob houses along a street. 
