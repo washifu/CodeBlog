@@ -17,6 +17,8 @@ out of bounds.
   
 ### My Code  
 C++  
+Time Complexity: ~O( nlog(n) ), worst O(n<sup>2</sup>)  
+Space Complexity: O(1)
 ```c++
 class Sort {
     public:
