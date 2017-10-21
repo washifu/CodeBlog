@@ -15,6 +15,8 @@ which is easily sorted. Thus all the merge sorted arrays are sorted.
   
 ### My Code  
 C++  
+Time Complexity: ~O( nlog(n) ) Always  
+Space Complexity: O(n)  
 ```c++
 class Sort {
     public:
