@@ -18,22 +18,28 @@ out of bounds.
 ### My Code  
 C++  
 ```c++
-class QuickSort {
+class Sort {
     public:
-        static void quickSort(vector<int>::iterator left, vector<int>::iterator right) {
-            if (left >= right) { 
-                 return; 
-                
-            }
-            vector<int>::iterator pivot = right;
-            vector<int>::iterator partIndex = partition(left, right - 1, pivot);
-            quickSort(left, partIndex - 1);
-            quickSort(partIndex + 1, right);
+        typedef typename vector<T>::iterator it;
+        
+        static void quickSort(vector<T> &nums) {
+            it left = nums.begin();
+            it right = nums.end() - 1;
+            qs(left, right);
         }
         
     private:
-        static vector<int>::iterator partition(vector<int>::iterator left, vector<int>::iterator right, 
-                                               vector<int>::iterator pivot) {
+        static void qs(it left, it right) {
+            if (left >= right) { 
+                 return;   
+            }
+            
+            it  pivot = right;
+            it  partIndex = partition(left, right - 1, pivot);
+            qs(left, partIndex - 1);
+            qs(partIndex + 1, right);
+        }
+        static it partition(it left, it right, it pivot) {
             while (left < right) {
                 while (*left < *pivot) { 
                     left++; 
@@ -51,8 +57,8 @@ class QuickSort {
             return left;
         }
         
-        static void swapVal(vector<int>::iterator it1, vector<int>::iterator it2) {
-            int temp = *it1;
+        static void swapVal(it it1, it it2) {
+            T temp = *it1;
             *it1 = *it2;
             *it2 = temp;
         }
