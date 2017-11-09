@@ -15,6 +15,7 @@ You may assume the two numbers do not contain any leading zero, except the numbe
 **Output:** 7 -> 0 -> 8  
   
 ### Solution:  
+Since the linked lists are stored in reverse order, the problem is quite simple. Just do addition like you would by hand in grade school. Set a variable for carrying over if the sum is greater than 10, so you can add that to the next place digit. Don't forget to add another digit for the carried value at the end if it is not zero.  
   
 ### My Code:  
   
