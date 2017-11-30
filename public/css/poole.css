@@ -156,8 +156,7 @@ code {
   padding: .25em .5em;
   font-size: 85%;
   color: #bf616a;
-  /*background-color: #f9f9f9; */
-  background-color: #ff0000; /*wasif red*/
+  background-color: #f9f9f9;
   border-radius: 3px;
 }
 pre {
@@ -172,7 +171,7 @@ pre {
   word-break: break-all;
   word-wrap: break-word;
   /*background-color: #f9f9f9;*/
-  background-color: #ff7b00; /*wasif orange*/
+  background-color: #0000ff; /*wasif blue*/
 }
 pre code {
   padding: 0;
@@ -217,8 +216,7 @@ pre code {
 blockquote {
   padding: .5rem 1rem;
   margin: .8rem 0;
-  /*color: #7a7a7a;*/
-  color: #48ff00; /*wasif green*/
+  color: #7a7a7a;
   border-left: .25rem solid #e5e5e5;
 }
 blockquote p:last-child {
