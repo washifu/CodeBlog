@@ -24,7 +24,7 @@ Consider the subproblem of longest increasing subsequence for the sub array cont
 As you iterate through the array, build the longest increasing subsequence by checking if the next element is larger than the largest element, if so, append it to the LIS array. If the element is smaller, replace the first element in the LIS array that is larger than this new element. In this way, you don't add to the count, but if another element shows up that is slightly larger (but smaller than the replaced element) it may also be inserted (by replacing or appending) and maintain the optimal LIS array. This way effectively generates the LIS array dynamically. However, the searching for the next largest element is at best a binary search which takes log(n) time. Thus, O( nlog(n) ).
   
 ### My Code:
-The n^2 solution.  
+The n<sup>2</sup> solution.  
 Java  
 ```java
 class Solution {
