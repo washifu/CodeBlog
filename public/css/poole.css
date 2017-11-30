@@ -166,16 +166,13 @@ pre {
   padding: 1rem;
   font-size: .8rem;
   line-height: 1.4;
-  /*
   white-space: pre;
   white-space: pre-wrap;
   word-break: break-all;
   word-wrap: break-word;
-  */
-  white-space: normal;
-  overflow-x: scroll; /* wasif */
   /*background-color: #f9f9f9;*/
-  background-color: #ffff00;
+  background-color: #00ffff; /* wasif */
+  max-width: 46rem; /* wasif */
 }
 pre code {
   padding: 0;
@@ -391,7 +388,7 @@ tbody tr:nth-child(odd) th {
  */
 
 .pagination {
-  /*overflow: hidden;  wasif */ /* clearfix */
+  overflow: hidden; /* clearfix */
   margin-left: -1rem;
   margin-right: -1rem;
   font-family: "PT Sans", Helvetica, Arial, sans-serif;
