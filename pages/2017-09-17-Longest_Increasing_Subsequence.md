@@ -72,6 +72,7 @@ public:
 ### My Code:
 The nlog(n) solution.
 Java
+<pre>
  ```java
  class Solution {
     public int lengthOfLIS(int[] nums) {
@@ -100,7 +101,8 @@ Java
         return ordered.size();
     }
 }
-```  
+```
+</pre>
   
 C++  
 ```c++
