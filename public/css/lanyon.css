@@ -37,7 +37,7 @@
 /* Prevent scroll on narrow devices */
 html,
 body {
-  /*overflow-x: hidden;*/
+  overflow-x: hidden;
 }
 
 html {
@@ -541,12 +541,12 @@ a.pagination-item:hover {
 .theme-base-0t .sidebar,
 .theme-base-0t .sidebar-toggle:active,
 .theme-base-0t #sidebar-checkbox:checked ~ .sidebar-toggle {
-  background-color: #8ff850;
+  background-color: #ff8500;
 }
 .theme-base-0t .container a,
 .theme-base-0t .sidebar-toggle,
 .theme-base-0t .related-posts li a:hover {
-  color: #8ff850;
+  color: #ff8500;
 }
 
 /*
