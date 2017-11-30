@@ -151,7 +151,6 @@ abbr[title] {
 code,
 pre {
   font-family: Menlo, Monaco, "Courier New", monospace;
-  overflow: scroll; /* wasif */
 }
 code {
   padding: .25em .5em;
@@ -171,7 +170,8 @@ pre {
   white-space: pre-wrap;
   word-break: break-all;
   word-wrap: break-word;
-  background-color: #f9f9f9;
+  /*background-color: #f9f9f9;*/
+  background-color: #ffffff; /* wasif */
 }
 pre code {
   padding: 0;
