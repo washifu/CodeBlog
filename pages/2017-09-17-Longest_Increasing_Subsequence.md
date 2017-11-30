@@ -70,8 +70,8 @@ public:
 ```  
   
 ### My Code:
-The nlog(n) solution.
-Java
+The nlog(n) solution  
+Java  
 <pre>
  ```java
  class Solution {
