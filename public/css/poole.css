@@ -151,6 +151,7 @@ abbr[title] {
 code,
 pre {
   font-family: Menlo, Monaco, "Courier New", monospace;
+  overflow: scroll; /* wasif */
 }
 code {
   padding: .25em .5em;
