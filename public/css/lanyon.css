@@ -37,8 +37,7 @@
 /* Prevent scroll on narrow devices */
 html,
 body {
-  /* overflow-x: hidden; */
-  overflow-x: scroll; /* wasif */
+  overflow-x: hidden;
 }
 
 html {
@@ -366,7 +365,7 @@ a.sidebar-nav-item:focus {
  */
 
 .pagination {
-  /* overflow: hidden; wasif */ /* clearfix */
+  overflow: hidden; /* clearfix */
   margin-left: -1rem;
   margin-right: -1rem;
   font-family: "PT Sans", Helvetica, Arial, sans-serif;
