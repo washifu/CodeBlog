@@ -175,7 +175,7 @@ pre {
   white-space: normal;
   overflow-x: scroll; /* wasif */
   /*background-color: #f9f9f9;*/
-  background-color: #ff00ff;
+  background-color: #ffff00;
 }
 pre code {
   padding: 0;
@@ -391,7 +391,7 @@ tbody tr:nth-child(odd) th {
  */
 
 .pagination {
-  overflow: hidden; /* clearfix */
+  /*overflow: hidden;  wasif */ /* clearfix */
   margin-left: -1rem;
   margin-right: -1rem;
   font-family: "PT Sans", Helvetica, Arial, sans-serif;
