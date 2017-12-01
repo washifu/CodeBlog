@@ -5,13 +5,15 @@ comments: true
 ---
 
 ## [Longest Increasing Subsequence](https://leetcode.com/problems/longest-increasing-subsequence/description/) -- (Medium)
-
+<pre overflow-x: scroll>
 ```
 Test Code
 Block
 Anohana
 Perhaps the css rebuilds later?
+Here is a test with a super long sentence that's sole purpose72 is to80 check whether we can get scroll bars working or not.
 ```
+</pre>
 
 ### Description:
 Given an unsorted array of integers, find the length of longest increasing subsequence.  
