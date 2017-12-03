@@ -171,8 +171,8 @@ pre {
   word-break: break-all;
   word-wrap: break-word;
   /*background-color: #f9f9f9;*/
-  background-color: #ffff00; /* wasif */
-  max-width: 46rem; /* wasif */
+  background-color: #ff0088; /* wasif */
+  max-width: 50rem; /* wasif */
   overflow-x: scroll; /* wasif */
 }
 pre code {
