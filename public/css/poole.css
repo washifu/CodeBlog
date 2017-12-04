@@ -182,6 +182,11 @@ pre code {
   background-color: transparent;
 }
 
+/* Eclipse wasif */
+.eclipse {
+  background-color: #eeeeee; 
+}
+
 /* Pygments via Jekyll */
 .highlight {
   margin-bottom: 1rem;
