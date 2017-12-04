@@ -165,14 +165,14 @@ pre {
   padding: 1rem;
   font-size: .8rem;
   line-height: 1.4;
-  /*
+  /* wasif
   white-space: pre;
   white-space: pre-wrap;
   word-break: break-all;
   word-wrap: break-word;
   */
   /*background-color: #f9f9f9;*/
-  background-color: #00ff00; /* wasif */
+  background-color: #00ffaa; /* wasif */
 }
 pre code {
   padding: 0;
@@ -186,7 +186,7 @@ pre code {
   margin-bottom: 1rem;
   border-radius: 4px;
   overflow-x: scroll; /* wasif */
-  max-width: 36rem; /* wasif */
+  max-width: 42rem; /* wasif */
 }
 .highlight pre {
   margin-bottom: 0;
