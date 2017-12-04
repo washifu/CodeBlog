@@ -174,7 +174,7 @@ pre {
   word-wrap: break-word;
   */
   /*background-color: #f9f9f9;*/
-  background-color: #0033aa; /* wasif */
+  background-color: #aa1188; /* wasif */
 }
 pre code {
   padding: 0;
@@ -187,6 +187,7 @@ pre code {
 .highlight {
   margin-bottom: 1rem;
   border-radius: 4px;
+  overflow-x: scroll; /* wasif */
 }
 .highlight pre {
   margin-bottom: 0;
