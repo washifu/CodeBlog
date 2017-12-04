@@ -78,14 +78,15 @@ h1, h2, h3, h4, h5, h6 {
 @media (min-width: 38em) {
   .container {
     /* max-width: 32rem; */
-    max-width: 50rem; /* wasif */
+    max-width: 50rem;
     overflow-x: scroll;
   }
 }
 @media (min-width: 56em) {
   .container {
-    max-width: 38rem;
-    /* max-width: 50rem; wasif */
+    /* max-width: 38rem; */
+    max-width: 50rem; /* wasif */
+    overflow-x: scroll;
   }
 }
 
