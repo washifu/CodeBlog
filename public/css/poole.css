@@ -151,6 +151,8 @@ abbr[title] {
 code,
 pre {
   font-family: Menlo, Monaco, "Courier New", monospace;
+  max-width: 50rem; /* wasif */
+  overflow-x: scroll; /* wasif */
 }
 code {
   padding: .25em .5em;
@@ -158,6 +160,8 @@ code {
   color: #bf616a;
   background-color: #f9f9f9;
   border-radius: 3px;
+  max-width: 50rem; /* wasif */
+  overflow-x: scroll; /* wasif */
 }
 pre {
   display: block;
@@ -171,15 +175,15 @@ pre {
   word-break: break-all;
   word-wrap: break-word;
   /*background-color: #f9f9f9;*/
-  background-color: #ff0088; /* wasif */
-  max-width: 50rem; /* wasif */
-  overflow-x: scroll; /* wasif */
+  background-color: #ff8800; /* wasif */
 }
 pre code {
   padding: 0;
   font-size: 100%;
   color: inherit;
   background-color: transparent;
+  max-width: 50rem; /* wasif */
+  overflow-x: scroll; /* wasif */
 }
 
 /* Pygments via Jekyll */
@@ -211,6 +215,8 @@ pre code {
   color: inherit;
   background-color: transparent;
   border-radius: 0;
+  max-width: 50rem; /* wasif */
+  overflow-x: scroll; /* wasif */
 }
 
 /* Quotes */
@@ -289,7 +295,9 @@ tbody tr:nth-child(odd) th {
  */
 
 .container {
-  max-width: 38rem;
+  /* max-width: 38rem; */
+  max-width: 50rem; /* wasif */
+  overflow-x: scroll; /* wasif */
   padding-left:  1rem;
   padding-right: 1rem;
   margin-left:  auto;
