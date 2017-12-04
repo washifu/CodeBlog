@@ -165,12 +165,14 @@ pre {
   padding: 1rem;
   font-size: .8rem;
   line-height: 1.4;
+  /*
   white-space: pre;
   white-space: pre-wrap;
   word-break: break-all;
   word-wrap: break-word;
+  */
   /*background-color: #f9f9f9;*/
-  background-color: #2200aa; /* wasif */
+  background-color: #225555; /* wasif */
 }
 pre code {
   padding: 0;
