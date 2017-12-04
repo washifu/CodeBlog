@@ -172,7 +172,8 @@ pre {
   word-wrap: break-word;
   */
   /*background-color: #f9f9f9;*/
-  background-color: #000000; /* wasif */
+  background-color: #111111; /* wasif */
+  color: #dddddd /* wasif */
 }
 pre code {
   padding: 0;
@@ -186,7 +187,7 @@ pre code {
   margin-bottom: 1rem;
   border-radius: 4px;
   overflow-x: scroll; /* wasif */
-  max-width: 42rem; /* wasif */
+  /* max-width: 42rem; wasif */
 }
 .highlight pre {
   margin-bottom: 0;
