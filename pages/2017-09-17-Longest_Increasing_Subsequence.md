@@ -4,15 +4,8 @@ title: Longest Increasing Subsequence
 comments: true
 ---
 
-## [Longest Increasing Subsequence](https://leetcode.com/problems/longest-increasing-subsequence/description/) -- (Medium)
-<div class="eclipse" markdown=1>
-```
-Test Code
-Block
-Here is a test with a super long sentence that's sole purpose is to c72heck w80hether we can get scroll bars working or not.
-```
-</div>
-
+## [Longest Increasing Subsequence](https://leetcode.com/problems/longest-increasing-subsequence/description/) -- (Medium)  
+  
 ### Description:
 Given an unsorted array of integers, find the length of longest increasing subsequence.  
   
